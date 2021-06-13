@@ -317,3 +317,34 @@ body {
         }
     }
 }
+
+.sign-form{
+    margin-top: 15vh;
+    font-size: 1.5rem;
+    color: $primary-color;
+    .col-8{
+        background-color: white;
+        border-radius: 1rem;
+        padding: 4rem;
+
+        #submit{
+            background-color: white;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            transition: $transition;
+            &:hover{
+                background-color: $primary-color;
+                color: white;
+            }
+        }
+        label{
+            font-weight: 500;
+            font-family: $theme-font;
+        }
+    }
+    .sign-title{
+        color: $darks;
+    }
+}

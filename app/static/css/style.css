@@ -389,4 +389,40 @@ body {
     margin: 0;
   }
 }
+
+.sign-form {
+  margin-top: 15vh;
+  font-size: 1.5rem;
+  color: #4A5FD9;
+}
+
+.sign-form .col-8 {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 4rem;
+}
+
+.sign-form .col-8 #submit {
+  background-color: white;
+  border: 1px solid #4A5FD9;
+  color: #4A5FD9;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+
+.sign-form .col-8 #submit:hover {
+  background-color: #4A5FD9;
+  color: white;
+}
+
+.sign-form .col-8 label {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.sign-form .sign-title {
+  color: #474259;
+}
 /*# sourceMappingURL=style.css.map */
