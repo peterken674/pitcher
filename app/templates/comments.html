@@ -1,0 +1,129 @@
+{% extends 'index.html' %} {% block pitches %} {{ super() }}
+<div class="pitch p-4 my-3">
+    <div class="pitch-header">
+        <div class="dp-div">
+            <img src="{{url_for('static', filename='img/joey.jpg')}}" />
+        </div>
+        <div class="mx-3">
+            <div class="names">
+                <span class="full-name">Joey Tribiani</span>
+                <span class="username">@jtribbiani</span>
+            </div>
+            <div class="time">3:04 PM</div>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
+            explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
+            rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatum
+            iste alias fugit animi id soluta quisquam repellendus, cumque amet quo
+            distinctio et explicabo beatae repellat est molestiae error aliquid!
+        </p>
+    </div>
+    <div class="pitch-footer">
+        <div class="likes">
+            <div class="thumbs-up">
+                <i class="fas fa-thumbs-up"></i>
+            </div>
+            <div class="likes-count">143.4K</div>
+        </div>
+        <div class="dislikes">
+            <div class="thumbs-down">
+                <i class="fas fa-thumbs-down"></i>
+            </div>
+            <div class="dislikes-count">1.2K</div>
+        </div>
+        <div class="comments">
+            <div>
+                <i class="fas fa-comment"></i>
+            </div>
+            <div>11.7K</div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="comments-div">
+        <div class="comment px-4 mb-2">
+            <div class="pitch-header">
+                <div class="dp-div">
+                    <img src="{{url_for('static', filename='img/rachel.jpg')}}" />
+                </div>
+                <div class="mx-3">
+                    <div class="names">
+                        <span class="full-name">Rachel Greene</span>
+                        <span class="username">@rgreene</span>
+                    </div>
+                    <div class="time">3:07 PM</div>
+                </div>
+            </div>
+            <div class="comment-body">
+                <div class="comment-content">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
+                        explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
+                        rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+                <div class="pitch-footer">
+                    <div class="likes">
+                        <div class="thumbs-up">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <div class="likes-count">3.4K</div>
+                    </div>
+                    <div class="dislikes">
+                        <div class="thumbs-down">
+                            <i class="fas fa-thumbs-down"></i>
+                        </div>
+                        <div class="dislikes-count">69</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment px-4 mb-2">
+            <div class="pitch-header">
+                <div class="dp-div">
+                    <img src="{{url_for('static', filename='img/chandler.jpg')}}" />
+                </div>
+                <div class="mx-3">
+                    <div class="names">
+                        <span class="full-name">Chandler Bing</span>
+                        <span class="username">@cbing</span>
+                    </div>
+                    <div class="time">3:10 PM</div>
+                </div>
+            </div>
+            <div class="comment-body">
+                <div class="comment-content">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
+                        explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
+                        rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+                <div class="pitch-footer">
+                    <div class="likes">
+                        <div class="thumbs-up">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <div class="likes-count">3.4K</div>
+                    </div>
+                    <div class="dislikes">
+                        <div class="thumbs-down">
+                            <i class="fas fa-thumbs-down"></i>
+                        </div>
+                        <div class="dislikes-count">69</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

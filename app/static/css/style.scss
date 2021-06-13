@@ -124,7 +124,7 @@ body {
     }
 
     .profile-name {
-        line-height: 1rem;
+        line-height: 1.2rem;
         font-size: 1.5rem;
         color: $darks;
 
@@ -262,5 +262,15 @@ body {
         .likes{
             color: $secondary-color;
         }
+    }
+}
+
+.comments-div{
+    margin-left: -1.2rem;
+}
+.comment-body{
+    margin-left: 4.8rem;
+    .comment-content{
+        font-size: 1.2rem;
     }
 }
