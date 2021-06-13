@@ -10,8 +10,8 @@
                             <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
                         </div>
                         <div class="profile-name mx-3">
-                            <p class="full-name my-1">Peter Kennedy</p>
-                            <p class="username my-1">@peterken</p>
+                            <p class="full-name my-1">{{ current_user.fname }} {{ current_user.lname }}</p>
+                            <p class="username my-1">@{{current_user.username}}</p>
                         </div>
                     </div>
                     {% endif %}

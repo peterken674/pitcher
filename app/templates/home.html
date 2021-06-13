@@ -9,7 +9,7 @@
         <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
     </div>
     <div class="new-input mx-3">
-        <textarea type="text" class="py-3" placeholder="What is your pitch, Peter?"></textarea>
+        <textarea type="text" class="py-3" placeholder="What is your pitch, {{current_user.fname}}?"></textarea>
     </div>
     <div class="send p-2">
         <i class="fas fa-paper-plane"></i>
