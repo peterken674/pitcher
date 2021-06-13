@@ -6,6 +6,7 @@ from .forms import SignUpForm, LoginForm
 from .. import db, photos
 from . import auth
 from flask_login import login_user, logout_user, login_required
+from ..email import mail_message
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -16,6 +17,9 @@ def signup():
         user = User(email = form.email.data, fname= form.fname.data, lname=form.lname.data, username = form.username.data, profile_pic_path=profile_pic_path, password = form.password.data)
         db.session.add(user)
         db.session.commit()
+
+        mail_message("Welcome to Pitcher.","email/welcome_user",user.email,user=user)
+
         return redirect(url_for('auth.login'))
 
     title = 'Sign Up | Pitcher'
