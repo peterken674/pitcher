@@ -1,17 +1,8 @@
-{% extends 'base.html' %}
-
-<!-- {% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-    <script src="https://kit.fontawesome.com/f853836380.js" crossorigin="anonymous"></script>
-{% endblock %} -->
-
-{% block main %} {{ super() }}
+{% extends 'base.html' %} {% block main %} {{ super() }}
 <div class="container">
 	<div class="content-wrapper">
 		<div class="row">
-			<div class="col-4">
+			<div class="col-lg-3 hidden-sm">
 				<div class="sidebar">
 					<div class="profile-div p-4">
 						<div class="profile-pic">
@@ -22,18 +13,20 @@
 							<p class="username my-1">@peterken</p>
 						</div>
 					</div>
-                    <div class="categories my-5 py-3 pb-5">
-                        <div class="categories-title p-3 text-uppercase">Categories</div>
-                        <div class="category p-3 active-category">Pickup Lines</div>
-                        <div class="category p-3">Interview Pitches</div>
-                        <div class="category p-3">Product Piches</div>
-                        <div class="category p-3">Promotion Pitches</div>
-                        <div class="category p-3">Social Gathering</div>
-                        <div class="category p-3">New Employee</div>
-                    </div>
+					<div class="categories my-5 py-3 pb-5">
+						<div class="categories-title p-3 text-uppercase">Categories</div>
+						<div class="category p-3 active-category">Pickup Lines</div>
+						<div class="category p-3">Interview Pitches</div>
+						<div class="category p-3">Product Piches</div>
+						<div class="category p-3">Promotion Pitches</div>
+						<div class="category p-3">Social Gathering</div>
+						<div class="category p-3">New Employee</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-8">Col 2</div>
+			<div class="col-lg-9">
+				{% block pitches %}{% endblock %}
+			</div>
 		</div>
 	</div>
 </div>

@@ -9,21 +9,25 @@ $transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 @import url(https://fonts.googleapis.com/css?family=Sacramento:regular);
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
-body{
+body {
     font-family: $theme-font;
     background-color: $bg-color;
 }
-.navbar{
+
+.navbar {
     background-color: white;
     position: fixed;
+    z-index: 100;
 }
-.navdiv{
+
+.navdiv {
     background: white;
     height: 10vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     .logodiv {
         display: flex;
         flex-direction: row;
@@ -42,12 +46,14 @@ body{
             color: $primary-color;
         }
     }
-    .logout-div{
+
+    .logout-div {
         display: flex;
         flex-direction: row;
         height: 100%;
         align-items: center;
-        .logout{
+
+        .logout {
             background-color: $primary-color;
             color: white;
             font-family: $theme-font;
@@ -55,15 +61,17 @@ body{
             height: 4rem;
             border-radius: 0.5rem;
             transition: $transition;
-            &:hover{
+
+            &:hover {
                 background-color: white;
                 border: 2px solid $primary-color;
                 color: $primary-color;
-                
+
             }
         }
-        .profile{
-            img{
+
+        .profile {
+            img {
                 height: 4rem;
                 width: 4rem;
                 object-fit: cover;
@@ -75,7 +83,7 @@ body{
 }
 
 // Footer
-.footer{
+.footer {
     position: fixed;
     bottom: 0;
     text-align: center;
@@ -87,66 +95,172 @@ body{
     background-color: white;
 }
 
-.content-wrapper{
-        margin-top: 20vh;
-        position: relative;
+.content-wrapper {
+    margin-top: 20vh;
+    position: relative;
 }
 
-.sidebar{
+.sidebar {
     position: fixed;
+    width: max-content;
 }
 
-.profile-div{
+.profile-div {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     background-color: white;
     border-radius: 0.5rem;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
-    .profile-pic img{
+
+    .profile-pic img {
         height: 5rem;
         width: 5rem;
         border-radius: 0.5rem;
     }
-    .profile-name{
+
+    .profile-name {
         line-height: 1rem;
         font-size: 1.5rem;
         color: $darks;
-        .full-name{
+
+        .full-name {
             font-weight: 600;
         }
-        .username{
+
+        .username {
             font-weight: 300;
         }
     }
 }
 
-.categories{
+.categories {
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
     color: $darks;
-    .categories-title{
+
+    .categories-title {
         border-bottom: 1px solid rgb(224, 224, 224);
         font-weight: 700;
     }
-    .category{
+
+    .category {
         border-bottom: 1px solid rgb(224, 224, 224);
         font-weight: 300;
         transition: $transition;
-        &:hover{
+
+        &:hover {
             background-color: rgb(224, 224, 224);
             cursor: pointer;
         }
     }
-    .active-category{
+
+    .active-category {
         color: $primary-color;
         border-left: 3px solid $primary-color;
         font-weight: 500;
+    }
+}
+
+.new-pitch {
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    align-items: flex-start;
+    width: 100%;
+
+    .current-user-pic img {
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 0.5rem
+    }
+
+    .send {
+        margin-left: auto;
+        font-size: 2.5rem;
+        color: $primary-color;
+    }
+
+    .new-input {
+        width: 80%;
+
+        textarea {
+            border: none;
+            width: 80%;
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+// Pitches
+.pitch{
+    background-color: white;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    .dp-div{
+        img{
+            height: 4rem;
+            width: 4rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .pitch-header{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+        .time{
+            font-size: 1.2rem;
+        }
+        .full-name{
+            color: $primary-color;
+            font-weight: 600;
+        }
+        .username{
+            font-weight: 300;
+            font-size: 1.3rem;
+        }
+    }
+
+    .pitch-content{
+        font-size: 1.2rem;
+    }
+
+    .pitch-footer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.2rem;
+        color: grey;
+
+        &>div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 2.5rem;
+            i{
+                margin-right: 0.4rem;
+            }
+        }
+        .likes{
+            color: $secondary-color;
+        }
     }
 }

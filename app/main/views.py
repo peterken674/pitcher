@@ -3,9 +3,15 @@ from . import main
 
 # Index page.
 @main.route('/')
+@main.route('/home')
 def index():
     '''
     View root page function that returns the index page and its data
     '''
 
-    return render_template('index.html')
+    return render_template('home.html')
+
+@main.route('/comments')
+def pitch():
+
+    return render_template('comments.html')
