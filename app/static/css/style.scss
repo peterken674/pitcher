@@ -259,9 +259,6 @@ body {
                 margin-right: 0.4rem;
             }
         }
-        .likes{
-            color: $secondary-color;
-        }
     }
 }
 
@@ -273,4 +270,37 @@ body {
     .comment-content{
         font-size: 1.2rem;
     }
+}
+
+// Profile
+.profile-content{
+    margin-top: 15vh;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 4rem;
+    font-size: 1.2rem;
+    .profile-header{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        margin-bottom: 3rem;
+        &>div{
+            margin-right: 1rem;
+        }
+    }
+    h3{
+        color: $primary-color;
+    }
+}
+
+#dp img{
+    height: 12rem;
+    width: 12rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+// Footer selected.
+.ftr-highlight{
+    color: $secondary-color;
 }

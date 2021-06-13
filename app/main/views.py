@@ -15,3 +15,8 @@ def index():
 def pitch():
 
     return render_template('comments.html')
+
+@main.route('/profile')
+def profile():
+
+    return render_template('profile.html')

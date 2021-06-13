@@ -1,0 +1,58 @@
+{% extends 'base.html' %}{% block main %} {{ super() }}
+
+<div class="container">
+    <div class="profile-content">
+        <div class="profile-header">
+            <div id="dp">
+                <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
+            </div>
+            <div id="names">
+                <div id="full-name">Peter Kennedy</div>
+                <div id="username">@peterken</div>
+            </div>
+        </div>
+        <div id="bio">
+            <h3>Bio</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nam eligendi nihil quaerat quo perspiciatis id est. Sequi itaque velit iste quae voluptatum voluptatibus! Hic nostrum illo velit vel blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident quo pariatur modi quia exercitationem dicta maiores minima culpa. Dolores, exercitationem autem. Minima sunt magni provident consequuntur accusantium numquam aliquam.</p>
+        </div>
+
+        <div id="email">
+            <h3>Email</h3>
+            <hr>
+            <p>peterken.ngugi@gmail.com</p>
+        </div>
+
+        <div id="pitches">
+            <h3>My Pitches</h3>
+            <hr>
+            <div class="pitch">
+                <div class="pitch-content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In facere nam numquam odit exercitationem ex voluptatem repellat dicta ratione corporis, distinctio laborum quo sapiente possimus ad necessitatibus assumenda minus est! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ratione exercitationem nam, necessitatibus, neque vitae libero nisi quisquam dolores explicabo minima quo, dolore alias illo harum minus debitis fuga inventore?</p>
+                </div>
+                <div class="pitch-footer">
+						<div class="likes">
+							<div class="thumbs-up">
+								<i class="fas fa-thumbs-up"></i>
+							</div>
+							<div class="likes-count">143.4K</div>
+						</div>
+						<div class="dislikes">
+							<div class="thumbs-down">
+								<i class="fas fa-thumbs-down"></i>
+							</div>
+							<div class="dislikes-count">1.2K</div>
+						</div>
+						<div class="comments">
+							<div>
+								<i class="fas fa-comment"></i>
+							</div>
+							<div>11.7K</div>
+						</div>
+					</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
