@@ -351,3 +351,7 @@ body {
         color: $darks;
     }
 }
+
+img{
+    object-fit: cover !important;
+}

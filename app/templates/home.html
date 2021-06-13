@@ -6,7 +6,7 @@
 {% if current_user.is_authenticated %}
 <div class="new-pitch p-3">
     <div class="current-user-pic">
-        <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
+        <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" />
     </div>
     <div class="new-input mx-3">
         <textarea type="text" class="py-3" placeholder="What is your pitch, {{current_user.fname}}?"></textarea>

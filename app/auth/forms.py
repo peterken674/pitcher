@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import Required, Email, EqualTo
 from ..models import User
 from wtforms import ValidationError
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 class SignUpForm(FlaskForm):
     email = StringField('Email Address', validators=[Required(), Email()])
@@ -11,6 +12,7 @@ class SignUpForm(FlaskForm):
     username = StringField('Username', validators=[Required()])
     password = PasswordField('Password', validators=[Required(), EqualTo('password_confirm', message='Passwords do not match.')])
     password_confirm = PasswordField('Confirm Password', validators=[Required()])
+    profile = FileField('Upload Profile Picture', validators=[FileRequired(), FileAllowed(['jpg','png'], 'Images only allowed.')])
     submit = SubmitField('Sign Up')
 
     # Validate email

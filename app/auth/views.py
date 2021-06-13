@@ -3,7 +3,7 @@ from flask.helpers import flash
 from flask_wtf import form
 from ..models import User
 from .forms import SignUpForm, LoginForm
-from .. import db
+from .. import db, photos
 from . import auth
 from flask_login import login_user, logout_user, login_required
 
@@ -11,7 +11,9 @@ from flask_login import login_user, logout_user, login_required
 def signup():
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(email = form.email.data, fname= form.fname.data, lname=form.lname.data, username = form.username.data, password = form.password.data)
+        filename = photos.save(form.profile.data)
+        profile_pic_path = f'img/{filename}'
+        user = User(email = form.email.data, fname= form.fname.data, lname=form.lname.data, username = form.username.data, profile_pic_path=profile_pic_path, password = form.password.data)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('auth.login'))

@@ -428,4 +428,9 @@ body {
 .sign-form .sign-title {
   color: #474259;
 }
+
+img {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
 /*# sourceMappingURL=style.css.map */
