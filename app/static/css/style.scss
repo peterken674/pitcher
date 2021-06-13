@@ -12,6 +12,9 @@ $transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 body {
     font-family: $theme-font;
     background-color: $bg-color;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .navbar {

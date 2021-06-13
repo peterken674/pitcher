@@ -2,212 +2,216 @@
 
 {% block pitches %}
 {{ super() }}
+
+{% if current_user.is_authenticated %}
 <div class="new-pitch p-3">
-					<div class="current-user-pic">
-						<img src="{{url_for('static', filename='img/peterken.jpg')}}" />
-					</div>
-					<div class="new-input mx-3">
-						<textarea
-							type="text"
-							class="py-3"
-							placeholder="What is your pitch, Peter?"
-						></textarea>
-					</div>
-					<div class="send p-2">
-						<i class="fas fa-paper-plane"></i>
-					</div>
-				</div>
+    <div class="current-user-pic">
+        <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
+    </div>
+    <div class="new-input mx-3">
+        <textarea type="text" class="py-3" placeholder="What is your pitch, Peter?"></textarea>
+    </div>
+    <div class="send p-2">
+        <i class="fas fa-paper-plane"></i>
+    </div>
+</div>
+{% endif %}
 
+<div class="pitch p-4 my-3">
+    <div class="pitch-header">
+        <div class="dp-div">
+            <img src="{{url_for('static', filename='img/joey.jpg')}}" />
+        </div>
+        <div class="mx-3">
+            <div class="names">
+                <span class="full-name">Joey Tribiani</span>
+                <span class="username">@jtribbiani</span>
+            </div>
+            <div class="time">3:04 PM</div>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
+            delectus sunt rerum minima non aspernatur tenetur totam temporibus
+            neque architecto! A! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dolore voluptatum iste alias fugit animi id
+            soluta quisquam repellendus, cumque amet quo distinctio et
+            explicabo beatae repellat est molestiae error aliquid!
+        </p>
+    </div>
+    <div class="pitch-footer">
+        <div class="likes ftr-highlight">
+            <div class="thumbs-up">
+                <i class="fas fa-thumbs-up"></i>
+            </div>
+            <div class="likes-count">143.4K</div>
+        </div>
+        <div class="dislikes">
+            <div class="thumbs-down">
+                <i class="fas fa-thumbs-down"></i>
+            </div>
+            <div class="dislikes-count">1.2K</div>
+        </div>
+        <div class="comments">
+            <div>
+                <i class="fas fa-comment"></i>
+            </div>
+            <div>11.7K</div>
+        </div>
+    </div>
+</div>
 
-				<div class="pitch p-4 my-3">
-					<div class="pitch-header">
-						<div class="dp-div">
-							<img src="{{url_for('static', filename='img/joey.jpg')}}" />
-						</div>
-						<div class="mx-3">
-							<div class="names">
-								<span class="full-name">Joey Tribiani</span>
-								<span class="username">@jtribbiani</span>
-							</div>
-							<div class="time">3:04 PM</div>
-						</div>
-					</div>
-					<div class="pitch-content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-							delectus sunt rerum minima non aspernatur tenetur totam temporibus
-							neque architecto! A! Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Dolore voluptatum iste alias fugit animi id
-							soluta quisquam repellendus, cumque amet quo distinctio et
-							explicabo beatae repellat est molestiae error aliquid!
-						</p>
-					</div>
-					<div class="pitch-footer">
-						<div class="likes ftr-highlight">
-							<div class="thumbs-up">
-								<i class="fas fa-thumbs-up"></i>
-							</div>
-							<div class="likes-count">143.4K</div>
-						</div>
-						<div class="dislikes">
-							<div class="thumbs-down">
-								<i class="fas fa-thumbs-down"></i>
-							</div>
-							<div class="dislikes-count">1.2K</div>
-						</div>
-						<div class="comments">
-							<div>
-								<i class="fas fa-comment"></i>
-							</div>
-							<div>11.7K</div>
-						</div>
-					</div>
-				</div>
+<div class="pitch p-4 my-3">
+    <div class="pitch-header">
+        <div class="dp-div">
+            <img src="{{url_for('static', filename='img/rachel.jpg')}}" />
+        </div>
+        <div class="mx-3">
+            <div class="names">
+                <span class="full-name">Rachel Greene</span>
+                <span class="username">@rgreene</span>
+            </div>
+            <div class="time">1:06 PM</div>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
+            delectus sunt rerum minima non aspernatur tenetur totam temporibus
+            neque architecto! A! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dolore voluptatum iste alias fugit animi id
+            soluta quisquam repellendus, cumque amet quo distinctio et
+            explicabo beatae repellat est molestiae error aliquid!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
+            delectus sunt rerum minima non aspernatur tenetur totam temporibus
+            neque architecto! A! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dolore voluptatum iste alias fugit animi id
+            soluta quisquam repellendus, cumque amet quo distinctio et
+            explicabo beatae repellat est molestiae error aliquid!
+        </p>
+    </div>
+    <div class="pitch-footer">
+        <div class="likes">
+            <div class="thumbs-up">
+                <i class="fas fa-thumbs-up"></i>
+            </div>
+            <div class="likes-count">143.4K</div>
+        </div>
+        <div class="dislikes">
+            <div class="thumbs-down">
+                <i class="fas fa-thumbs-down"></i>
+            </div>
+            <div class="dislikes-count">1.2K</div>
+        </div>
+        <div class="comments">
+            <div>
+                <i class="fas fa-comment"></i>
+            </div>
+            <div>11.7K</div>
+        </div>
+    </div>
+</div>
 
-                <div class="pitch p-4 my-3">
-					<div class="pitch-header">
-						<div class="dp-div">
-							<img src="{{url_for('static', filename='img/rachel.jpg')}}" />
-						</div>
-						<div class="mx-3">
-							<div class="names">
-								<span class="full-name">Rachel Greene</span>
-								<span class="username">@rgreene</span>
-							</div>
-							<div class="time">1:06 PM</div>
-						</div>
-					</div>
-					<div class="pitch-content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-							delectus sunt rerum minima non aspernatur tenetur totam temporibus
-							neque architecto! A! Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Dolore voluptatum iste alias fugit animi id
-							soluta quisquam repellendus, cumque amet quo distinctio et
-							explicabo beatae repellat est molestiae error aliquid!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-							delectus sunt rerum minima non aspernatur tenetur totam temporibus
-							neque architecto! A! Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Dolore voluptatum iste alias fugit animi id
-							soluta quisquam repellendus, cumque amet quo distinctio et
-							explicabo beatae repellat est molestiae error aliquid!
-						</p>
-					</div>
-					<div class="pitch-footer">
-						<div class="likes">
-							<div class="thumbs-up">
-								<i class="fas fa-thumbs-up"></i>
-							</div>
-							<div class="likes-count">143.4K</div>
-						</div>
-						<div class="dislikes">
-							<div class="thumbs-down">
-								<i class="fas fa-thumbs-down"></i>
-							</div>
-							<div class="dislikes-count">1.2K</div>
-						</div>
-						<div class="comments">
-							<div>
-								<i class="fas fa-comment"></i>
-							</div>
-							<div>11.7K</div>
-						</div>
-					</div>
-				</div>
+<div class="pitch p-4 my-3">
+    <div class="pitch-header">
+        <div class="dp-div">
+            <img src="{{url_for('static', filename='img/ross.jpg')}}" />
+        </div>
+        <div class="mx-3">
+            <div class="names">
+                <span class="full-name">Ross Geller</span>
+                <span class="username">@rgeller</span>
+            </div>
+            <div class="time">11:34 AM</div>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
+            delectus sunt rerum minima non aspernatur tenetur totam temporibus
+            neque architecto! A! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dolore voluptatum iste alias fugit animi id
+            soluta quisquam repellendus, cumque amet quo distinctio et
+            explicabo beatae repellat est molestiae error aliquid! Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Laboriosam, cumque debitis amet dolores nihil atque fugiat quia animi, perspiciatis aut distinctio
+            error molestiae vel ratione! Incidunt ea dolorem expedita itaque.
+        </p>
+    </div>
+    <div class="pitch-footer">
+        <div class="likes ftr-highlight">
+            <div class="thumbs-up">
+                <i class="fas fa-thumbs-up"></i>
+            </div>
+            <div class="likes-count">143.4K</div>
+        </div>
+        <div class="dislikes">
+            <div class="thumbs-down">
+                <i class="fas fa-thumbs-down"></i>
+            </div>
+            <div class="dislikes-count">1.2K</div>
+        </div>
+        <div class="comments">
+            <div>
+                <i class="fas fa-comment"></i>
+            </div>
+            <div>11.7K</div>
+        </div>
+    </div>
+</div>
 
-                <div class="pitch p-4 my-3">
-					<div class="pitch-header">
-						<div class="dp-div">
-							<img src="{{url_for('static', filename='img/ross.jpg')}}" />
-						</div>
-						<div class="mx-3">
-							<div class="names">
-								<span class="full-name">Ross Geller</span>
-								<span class="username">@rgeller</span>
-							</div>
-							<div class="time">11:34 AM</div>
-						</div>
-					</div>
-					<div class="pitch-content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-							delectus sunt rerum minima non aspernatur tenetur totam temporibus
-							neque architecto! A! Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Dolore voluptatum iste alias fugit animi id
-							soluta quisquam repellendus, cumque amet quo distinctio et
-							explicabo beatae repellat est molestiae error aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, cumque debitis amet dolores nihil atque fugiat quia animi, perspiciatis aut distinctio error molestiae vel ratione! Incidunt ea dolorem expedita itaque.
-						</p>
-					</div>
-					<div class="pitch-footer">
-						<div class="likes ftr-highlight">
-							<div class="thumbs-up">
-								<i class="fas fa-thumbs-up"></i>
-							</div>
-							<div class="likes-count">143.4K</div>
-						</div>
-						<div class="dislikes">
-							<div class="thumbs-down">
-								<i class="fas fa-thumbs-down"></i>
-							</div>
-							<div class="dislikes-count">1.2K</div>
-						</div>
-						<div class="comments">
-							<div>
-								<i class="fas fa-comment"></i>
-							</div>
-							<div>11.7K</div>
-						</div>
-					</div>
-				</div>
-
-                <div class="pitch p-4 my-3">
-					<div class="pitch-header">
-						<div class="dp-div">
-							<img src="{{url_for('static', filename='img/chandler.jpg')}}" />
-						</div>
-						<div class="mx-3">
-							<div class="names">
-								<span class="full-name">Chandler Bing</span>
-								<span class="username">@cbing</span>
-							</div>
-							<div class="time">10:54 AM</div>
-						</div>
-					</div>
-					<div class="pitch-content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-							illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-							delectus sunt rerum minima non aspernatur tenetur totam temporibus
-							neque architecto! A! Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Dolore voluptatum iste alias fugit animi id
-							soluta quisquam repellendus, cumque amet quo distinctio et
-							explicabo beatae repellat est molestiae error aliquid! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, voluptates quasi ratione eius consequatur deleniti. Minima, eveniet! Ea, placeat molestiae, blanditiis repudiandae similique dolor, ullam fugit ex rerum quia corrupti. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aliquam tempora eius autem placeat distinctio eum facere nostrum eaque minus maxime, esse rem. Accusantium corporis ex nostrum, ipsa est fugit.
-						</p>
-					</div>
-					<div class="pitch-footer">
-						<div class="likes">
-							<div class="thumbs-up">
-								<i class="fas fa-thumbs-up"></i>
-							</div>
-							<div class="likes-count">143.4K</div>
-						</div>
-						<div class="dislikes">
-							<div class="thumbs-down">
-								<i class="fas fa-thumbs-down"></i>
-							</div>
-							<div class="dislikes-count">1.2K</div>
-						</div>
-						<div class="comments">
-							<div>
-								<i class="fas fa-comment"></i>
-							</div>
-							<div>11.7K</div>
-						</div>
-					</div>
-				</div>
+<div class="pitch p-4 my-3">
+    <div class="pitch-header">
+        <div class="dp-div">
+            <img src="{{url_for('static', filename='img/chandler.jpg')}}" />
+        </div>
+        <div class="mx-3">
+            <div class="names">
+                <span class="full-name">Chandler Bing</span>
+                <span class="username">@cbing</span>
+            </div>
+            <div class="time">10:54 AM</div>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
+            delectus sunt rerum minima non aspernatur tenetur totam temporibus
+            neque architecto! A! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Dolore voluptatum iste alias fugit animi id
+            soluta quisquam repellendus, cumque amet quo distinctio et
+            explicabo beatae repellat est molestiae error aliquid! Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Mollitia, voluptates quasi ratione eius consequatur deleniti. Minima, eveniet! Ea, placeat molestiae,
+            blanditiis repudiandae similique dolor, ullam fugit ex rerum quia corrupti. Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Et aliquam tempora eius autem placeat distinctio eum facere nostrum eaque
+            minus maxime, esse rem. Accusantium corporis ex nostrum, ipsa est fugit.
+        </p>
+    </div>
+    <div class="pitch-footer">
+        <div class="likes">
+            <div class="thumbs-up">
+                <i class="fas fa-thumbs-up"></i>
+            </div>
+            <div class="likes-count">143.4K</div>
+        </div>
+        <div class="dislikes">
+            <div class="thumbs-down">
+                <i class="fas fa-thumbs-down"></i>
+            </div>
+            <div class="dislikes-count">1.2K</div>
+        </div>
+        <div class="comments">
+            <div>
+                <i class="fas fa-comment"></i>
+            </div>
+            <div>11.7K</div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

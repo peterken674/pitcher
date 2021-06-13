@@ -1,33 +1,35 @@
 {% extends 'base.html' %} {% block main %} {{ super() }}
 <div class="container">
-	<div class="content-wrapper">
-		<div class="row">
-			<div class="col-lg-3 hidden-sm">
-				<div class="sidebar">
-					<div class="profile-div p-4">
-						<div class="profile-pic">
-							<img src="{{url_for('static', filename='img/peterken.jpg')}}" />
-						</div>
-						<div class="profile-name mx-3">
-							<p class="full-name my-1">Peter Kennedy</p>
-							<p class="username my-1">@peterken</p>
-						</div>
-					</div>
-					<div class="categories my-5 py-3 pb-5">
-						<div class="categories-title p-3 text-uppercase">Categories</div>
-						<div class="category p-3 active-category">Pickup Lines</div>
-						<div class="category p-3">Interview Pitches</div>
-						<div class="category p-3">Product Piches</div>
-						<div class="category p-3">Promotion Pitches</div>
-						<div class="category p-3">Social Gathering</div>
-						<div class="category p-3">New Employee</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-9">
-				{% block pitches %}{% endblock %}
-			</div>
-		</div>
-	</div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-3 hidden-sm">
+                <div class="sidebar">
+                    {% if current_user.is_authenticated %}
+                    <div class="profile-div p-4">
+                        <div class="profile-pic">
+                            <img src="{{url_for('static', filename='img/peterken.jpg')}}" />
+                        </div>
+                        <div class="profile-name mx-3">
+                            <p class="full-name my-1">Peter Kennedy</p>
+                            <p class="username my-1">@peterken</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="categories my-5 py-3 pb-5">
+                        <div class="categories-title p-3 text-uppercase">Categories</div>
+                        <div class="category p-3 active-category">Pickup Lines</div>
+                        <div class="category p-3">Interview Pitches</div>
+                        <div class="category p-3">Product Piches</div>
+                        <div class="category p-3">Promotion Pitches</div>
+                        <div class="category p-3">Social Gathering</div>
+                        <div class="category p-3">New Employee</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                {% block pitches %}{% endblock %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
