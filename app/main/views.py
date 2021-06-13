@@ -8,8 +8,9 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    title = 'Home | Pitcher'
 
-    return render_template('home.html')
+    return render_template('home.html', title = title)
 
 @main.route('/comments')
 def pitch():

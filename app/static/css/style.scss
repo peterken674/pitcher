@@ -304,3 +304,16 @@ body {
 .ftr-highlight{
     color: $secondary-color;
 }
+
+@media screen and (max-width:768px){
+    .navdiv{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        &>div{
+            transform: scale(0.8);
+            margin: 0;
+        }
+    }
+}
