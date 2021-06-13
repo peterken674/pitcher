@@ -9,12 +9,12 @@ $transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 @import url(https://fonts.googleapis.com/css?family=Sacramento:regular);
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
-body {
+html, body {
     font-family: $theme-font;
     background-color: $bg-color;
     background-image: url('../img/bg.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
 }
 
 .navbar {
@@ -329,6 +329,13 @@ body {
         background-color: white;
         border-radius: 1rem;
         padding: 4rem;
+
+        p{
+            color: $darks;
+            a {
+                color: $secondary-color;
+            }
+        }
 
         #submit{
             background-color: white;
