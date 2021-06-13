@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Sacramento:regular);
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 body {
+  font-family: "Poppins", sans-serif;
   background-color: #EEF1F6;
 }
 
@@ -69,12 +70,12 @@ body {
 .navdiv .logout-div .logout {
   background-color: #4A5FD9;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   height: 4rem;
   border-radius: 0.5rem;
-  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 }
 
 .navdiv .logout-div .logout:hover {
@@ -103,5 +104,92 @@ body {
   width: 100%;
   color: grey;
   background-color: white;
+}
+
+.content-wrapper {
+  margin-top: 20vh;
+  position: relative;
+}
+
+.sidebar {
+  position: fixed;
+}
+
+.profile-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.profile-div:hover {
+  cursor: pointer;
+}
+
+.profile-div .profile-pic img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 0.5rem;
+}
+
+.profile-div .profile-name {
+  line-height: 1rem;
+  font-size: 1.5rem;
+  color: #474259;
+}
+
+.profile-div .profile-name .full-name {
+  font-weight: 600;
+}
+
+.profile-div .profile-name .username {
+  font-weight: 300;
+}
+
+.categories {
+  background-color: white;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.5rem;
+  color: #474259;
+}
+
+.categories .categories-title {
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 700;
+}
+
+.categories .category {
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 300;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+
+.categories .category:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.categories .active-category {
+  color: #4A5FD9;
+  border-left: 3px solid #4A5FD9;
+  font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */
