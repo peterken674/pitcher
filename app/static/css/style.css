@@ -91,4 +91,17 @@ body {
   overflow: hidden;
   border-radius: 0.5rem;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  -webkit-box-shadow: 0 0 3px grey;
+          box-shadow: 0 0 3px grey;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  color: grey;
+  background-color: white;
+}
 /*# sourceMappingURL=style.css.map */
