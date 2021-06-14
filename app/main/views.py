@@ -58,6 +58,7 @@ def pitch():
     return render_template('comments.html')
 
 @main.route('/profile')
+@login_required
 def profile():
 
     return render_template('profile.html')
