@@ -2,8 +2,7 @@ $darks: #474259;
 $primary-color: #4A5FD9;
 $secondary-color: #F199F2;
 $bg-color: #EEF1F6;
-$theme-font: 'Poppins',
-sans-serif;
+$theme-font: 'Poppins', sans-serif;
 $transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 
 @import url(https://fonts.googleapis.com/css?family=Sacramento:regular);
@@ -13,18 +12,19 @@ html, body {
     font-family: $theme-font;
     background-color: $bg-color;
     background-image: url('../img/bg.jpg');
+    background-attachment: fixed;
     background-size: cover;
     background-position: bottom;
 }
 
 .navbar {
-    background-color: white;
+    background-color: $primary-color;
     position: fixed;
     z-index: 100;
 }
 
 .navdiv {
-    background: white;
+    background: $primary-color;
     height: 10vh;
     width: 100%;
     display: flex;
@@ -40,13 +40,13 @@ html, body {
 
         .logo {
             font-size: 4rem;
-            color: $primary-color;
+            color: white;
         }
 
         .name {
             font-size: 4rem;
             font-family: 'Sacramento', cursive;
-            color: $primary-color;
+            color: white;
         }
     }
 
@@ -64,10 +64,10 @@ html, body {
             height: 4rem;
             border-radius: 0.5rem;
             transition: $transition;
+            border: 1px solid white;
 
             &:hover {
                 background-color: white;
-                border: 2px solid $primary-color;
                 color: $primary-color;
 
             }
@@ -321,7 +321,7 @@ html, body {
     }
 }
 
-.sign-form{
+.sign-form, .new {
     margin-top: 15vh;
     font-size: 1.5rem;
     color: $primary-color;
@@ -362,3 +362,30 @@ html, body {
 img{
     object-fit: cover !important;
 }
+
+.new{
+    margin-top: 0;
+    margin-left: 3rem;
+    margin-right: 2rem;
+    width: 100%;
+    label{
+        font-weight: 300;
+    }
+    select{
+        font-size: 1.5rem;
+    }
+    textarea{
+        font-size: 1.5rem;
+    }
+    #submit{
+        background-color: white;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        transition: $transition;
+
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+    }}}

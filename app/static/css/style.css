@@ -4,18 +4,19 @@ html, body {
   font-family: "Poppins", sans-serif;
   background-color: #EEF1F6;
   background-image: url("../img/bg.jpg");
+  background-attachment: fixed;
   background-size: cover;
   background-position: bottom;
 }
 
 .navbar {
-  background-color: white;
+  background-color: #4A5FD9;
   position: fixed;
   z-index: 100;
 }
 
 .navdiv {
-  background: white;
+  background: #4A5FD9;
   height: 10vh;
   width: 100%;
   display: -webkit-box;
@@ -48,13 +49,13 @@ html, body {
 
 .navdiv .logodiv .logo {
   font-size: 4rem;
-  color: #4A5FD9;
+  color: white;
 }
 
 .navdiv .logodiv .name {
   font-size: 4rem;
   font-family: 'Sacramento', cursive;
-  color: #4A5FD9;
+  color: white;
 }
 
 .navdiv .logout-div {
@@ -80,11 +81,11 @@ html, body {
   border-radius: 0.5rem;
   -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  border: 1px solid white;
 }
 
 .navdiv .logout-div .logout:hover {
   background-color: white;
-  border: 2px solid #4A5FD9;
   color: #4A5FD9;
 }
 
@@ -393,27 +394,27 @@ html, body {
   }
 }
 
-.sign-form {
+.sign-form, .new {
   margin-top: 15vh;
   font-size: 1.5rem;
   color: #4A5FD9;
 }
 
-.sign-form .col-8 {
+.sign-form .col-8, .new .col-8 {
   background-color: white;
   border-radius: 1rem;
   padding: 4rem;
 }
 
-.sign-form .col-8 p {
+.sign-form .col-8 p, .new .col-8 p {
   color: #474259;
 }
 
-.sign-form .col-8 p a {
+.sign-form .col-8 p a, .new .col-8 p a {
   color: #F199F2;
 }
 
-.sign-form .col-8 #submit {
+.sign-form .col-8 #submit, .new .col-8 #submit {
   background-color: white;
   border: 1px solid #4A5FD9;
   color: #4A5FD9;
@@ -423,22 +424,56 @@ html, body {
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 }
 
-.sign-form .col-8 #submit:hover {
+.sign-form .col-8 #submit:hover, .new .col-8 #submit:hover {
   background-color: #4A5FD9;
   color: white;
 }
 
-.sign-form .col-8 label {
+.sign-form .col-8 label, .new .col-8 label {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
 
-.sign-form .sign-title {
+.sign-form .sign-title, .new .sign-title {
   color: #474259;
 }
 
 img {
   -o-object-fit: cover !important;
      object-fit: cover !important;
+}
+
+.new {
+  margin-top: 0;
+  margin-left: 3rem;
+  margin-right: 2rem;
+  width: 100%;
+}
+
+.new label {
+  font-weight: 300;
+}
+
+.new select {
+  font-size: 1.5rem;
+}
+
+.new textarea {
+  font-size: 1.5rem;
+}
+
+.new #submit {
+  background-color: white;
+  border: 1px solid #4A5FD9;
+  color: #4A5FD9;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+
+.new #submit:hover {
+  background-color: #4A5FD9;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

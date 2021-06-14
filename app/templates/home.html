@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 {% block pitches %}
 {{ super() }}
 
@@ -8,37 +8,31 @@
     <div class="current-user-pic">
         <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" />
     </div>
-    <div class="new-input mx-3">
-        <textarea type="text" class="py-3" placeholder="What is your pitch, {{current_user.fname}}?"></textarea>
+    <div class="new">
+        {{ wtf.quick_form(form) }}
     </div>
-    <div class="send p-2">
-        <i class="fas fa-paper-plane"></i>
-    </div>
+    
 </div>
 {% endif %}
+
+{% for pitch in pitches %}
 
 <div class="pitch p-4 my-3">
     <div class="pitch-header">
         <div class="dp-div">
-            <img src="{{url_for('static', filename='img/joey.jpg')}}" />
+            <img src="{{url_for('static', filename=pitch.user.profile_pic_path)}}" />
         </div>
         <div class="mx-3">
             <div class="names">
-                <span class="full-name">Joey Tribiani</span>
-                <span class="username">@jtribbiani</span>
+                <span class="full-name">{{pitch.user.fname}} {{pitch.user.lname}}</span>
+                <span class="username">@{{pitch.user.username}}</span>
             </div>
-            <div class="time">3:04 PM</div>
+            <div class="time">{{pitch.posted.strftime('%I:%M %p')}}</div>
         </div>
     </div>
     <div class="pitch-content">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-            illum explicabo iste eligendi aperiam ex dolorum incidunt ab,
-            delectus sunt rerum minima non aspernatur tenetur totam temporibus
-            neque architecto! A! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Dolore voluptatum iste alias fugit animi id
-            soluta quisquam repellendus, cumque amet quo distinctio et
-            explicabo beatae repellat est molestiae error aliquid!
+            {{pitch.pitch}}
         </p>
     </div>
     <div class="pitch-footer">
@@ -46,22 +40,26 @@
             <div class="thumbs-up">
                 <i class="fas fa-thumbs-up"></i>
             </div>
-            <div class="likes-count">143.4K</div>
+            <div class="likes-count">{{pitch.likes}}</div>
         </div>
         <div class="dislikes">
             <div class="thumbs-down">
                 <i class="fas fa-thumbs-down"></i>
             </div>
-            <div class="dislikes-count">1.2K</div>
+            <div class="dislikes-count">{{pitch.dislikes}}</div>
         </div>
         <div class="comments">
             <div>
                 <i class="fas fa-comment"></i>
             </div>
-            <div>11.7K</div>
+            <div>{{pitch.comments.count()}}</div>
         </div>
     </div>
 </div>
+
+{% endfor %}
+
+
 
 <div class="pitch p-4 my-3">
     <div class="pitch-header">
