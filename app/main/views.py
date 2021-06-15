@@ -35,7 +35,7 @@ def categories(id):
     '''
     View root page function that returns the index page and its data
     '''
-    pitches = Pitch.get_pitches_by_category(id)
+    
     form = PitchForm()
     title = 'Home | Pitcher'
     form.category.query = Category.query
@@ -50,7 +50,7 @@ def categories(id):
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
-
+    pitches = Pitch.get_pitches_by_category(id)
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
 @main.route('/<pitch_id>/comments', methods = ['GET', 'POST'])
