@@ -11,7 +11,7 @@ def load_user(user_id):
 class User(UserMixin, db.Model):
     '''Class to define a user of the application.
     '''
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
@@ -37,7 +37,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.pass_secure, password)
 
 class Pitch(db.Model):
-    __tablename__ = 'pitches'
+    __tablename__ = "pitches"
 
     id = db.Column(db.Integer, primary_key = True)
     posted = db.Column(db.DateTime, default=datetime.utcnow)
@@ -64,7 +64,7 @@ class Pitch(db.Model):
         return pitches
 
 class Comment(db.Model):
-    __tablename__ = 'comments'
+    __tablename__ = "comments"
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String())
@@ -85,7 +85,7 @@ class Comment(db.Model):
         return comments
         
 class Category(db.Model):
-    __tablename__ = 'categories'
+    __tablename__ = "categories"
 
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(255))
