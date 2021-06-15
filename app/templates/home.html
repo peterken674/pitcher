@@ -1,24 +1,15 @@
-{% extends 'index.html' %}
-{% import "bootstrap/wtf.html" as wtf %}
-{% block pitches %}
-{{ super() }}
-
-{% if current_user.is_authenticated %}
+{% extends 'index.html' %} {% import "bootstrap/wtf.html" as wtf %} {% block
+pitches %} {{ super() }} {% if current_user.is_authenticated %}
 <div class="new-pitch p-3">
     <div class="current-user-pic">
         <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" />
     </div>
-    <div class="new">
-        {{ wtf.quick_form(form) }}
-    </div>
-    
+    <div class="new">{{ wtf.quick_form(form) }}</div>
 </div>
-{% endif %}
-{% if pitches %}
+{% endif %} {% if pitches %}
 <div class="pitch my-2 py-2" id="cat">
     <h1 id="category-title">{{pitches[0].category.name}}</h1>
 </div>
-{%endif%}
 {% for pitch in pitches %}
 
 <div class="pitch p-4 my-3">
@@ -28,45 +19,50 @@
         </div>
         <div class="mx-3">
             <div class="names">
-                <span class="full-name">{{pitch.user.fname.capitalize()}} {{pitch.user.lname.capitalize()}}</span>
+                <span class="full-name">{{pitch.user.fname.capitalize()}}
+                    {{pitch.user.lname.capitalize()}}</span>
                 <span class="username">@{{pitch.user.username.lower()}}</span>
             </div>
             <div class="time">{{pitch.posted.strftime('%I:%M %p')}}</div>
         </div>
     </div>
     <div class="pitch-content">
-        <p>
-            {{pitch.pitch}}
-        </p>
+        <p>{{pitch.pitch}}</p>
     </div>
     <div class="pitch-footer">
         <div class="likes ftr-highlight">
             <a href="">
-            <div class="thumbs-up">
-                <i class="fas fa-thumbs-up"></i>
-            </div>
-            <div class="likes-count">{{pitch.likes}}</div>
+                <div class="thumbs-up">
+                    <i class="fas fa-thumbs-up"></i>
+                </div>
+                <div class="likes-count">{{pitch.likes}}</div>
             </a>
         </div>
         <div class="dislikes">
             <a href="">
-            <div class="thumbs-down">
-                <i class="fas fa-thumbs-down"></i>
-            </div>
-            <div class="dislikes-count">{{pitch.dislikes}}</div>
+                <div class="thumbs-down">
+                    <i class="fas fa-thumbs-down"></i>
+                </div>
+                <div class="dislikes-count">{{pitch.dislikes}}</div>
             </a>
         </div>
         <div class="comments">
             <a href="{{url_for('main.comment', pitch_id=pitch.id)}}">
-            <div>
-                <i class="fas fa-comment"></i>
-            </div>
-            <div>{{pitch.comments.count()}}</div>
+                <div>
+                    <i class="fas fa-comment"></i>
+                </div>
+                <div>{{pitch.comments.count()}}</div>
             </a>
         </div>
     </div>
 </div>
 
 {% endfor %}
+{% else %}
+<div class="pitch p-4 my-3">
+    <h3>No pitches in this category yet.</h3>
+</div>
+{%endif%}
+
 
 {% endblock %}
