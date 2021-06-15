@@ -25,7 +25,7 @@ def index():
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
-    pitches = Pitch.query.order_by(desc(Pitch.posted)).all()
+    pitches = Pitch.get_pitches()
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 

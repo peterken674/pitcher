@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from flask_login import UserMixin
 from . import login_manager
+from sqlalchemy import desc
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -53,6 +54,11 @@ class Pitch(db.Model):
     def save_pitch(self):
         db.session.add(self)
         db.session.commit()
+
+    @classmethod
+    def get_pitches(cls):
+        pitches = Pitch.query.order_by(desc(Pitch.posted)).all()
+        return pitches
 
     @classmethod
     def get_pitches_by_category(cls, id):
