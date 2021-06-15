@@ -1,4 +1,4 @@
-from app.models import Category, Pitch
+from app.models import Category, Pitch, Comment
 from flask import render_template, redirect, url_for
 from . import main
 from flask_login import login_required, current_user
@@ -52,15 +52,21 @@ def categories(id):
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
-@main.route('/<pitch_id>/comments')
+@main.route('/<pitch_id>/comments', methods = ['GET', 'POST'])
 def comment(pitch_id):
 
-    form = CommentForm()
+    comment_form = CommentForm()
     title = 'Comments | Pitcher'
     pitch = Pitch.query.filter_by(id=pitch_id).first()
-    # if form.validate_on_submit():
+    if comment_form.validate_on_submit():
+        comment = comment_form.comment.data
 
-    return render_template('comments.html', pitch=pitch, form=form)
+        new_comment = Comment(comment=comment, user=current_user, pitch=pitch)
+        new_comment.save_comment()
+
+    # Get comments for pitch.
+    comments = Comment.get_comments(pitch_id)
+    return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments)
 
 @main.route('/profile')
 @login_required
