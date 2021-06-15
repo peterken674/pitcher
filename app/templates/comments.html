@@ -25,19 +25,19 @@
             <div class="thumbs-up">
                 <i class="fas fa-thumbs-up"></i>
             </div>
-            <div class="likes-count">143.4K</div>
+            <div class="likes-count">{{ pitch.likes }}</div>
         </div>
         <div class="dislikes">
             <div class="thumbs-down">
                 <i class="fas fa-thumbs-down"></i>
             </div>
-            <div class="dislikes-count">1.2K</div>
+            <div class="dislikes-count">{{pitch.dislikes}}</div>
         </div>
         <div class="comments">
             <div>
                 <i class="fas fa-comment"></i>
             </div>
-            <div>11.7K</div>
+            <div>{{pitch.comments.count()}}</div>
         </div>
     </div>
     {% if current_user.is_authenticated %}
