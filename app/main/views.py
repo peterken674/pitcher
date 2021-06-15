@@ -48,7 +48,7 @@ def categories(id):
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
-    pitches = Pitch.query.filter_by(category_id=id).order_by(desc(Pitch.posted)).all()
+    pitches = Pitch.get_pitches_by_category(id)
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
