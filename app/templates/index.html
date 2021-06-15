@@ -10,8 +10,8 @@
                             <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" />
                         </div>
                         <div class="profile-name mx-3">
-                            <p class="full-name my-1">{{ current_user.fname }} {{ current_user.lname }}</p>
-                            <p class="username my-1">@{{current_user.username}}</p>
+                            <p class="full-name my-1">{{ current_user.fname.capitalize() }} {{ current_user.lname.capitalize() }}</p>
+                            <p class="username my-1">@{{current_user.username.lower()}}</p>
                             <div class="py-2"><a href="{{url_for('main.profile', id=current_user.id)}}"> View Profile</a></div>
                         </div>
                     </div>

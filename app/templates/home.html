@@ -28,8 +28,8 @@
         </div>
         <div class="mx-3">
             <div class="names">
-                <span class="full-name">{{pitch.user.fname}} {{pitch.user.lname}}</span>
-                <span class="username">@{{pitch.user.username}}</span>
+                <span class="full-name">{{pitch.user.fname.capitalize()}} {{pitch.user.lname.capitalize()}}</span>
+                <span class="username">@{{pitch.user.username.lower()}}</span>
             </div>
             <div class="time">{{pitch.posted.strftime('%I:%M %p')}}</div>
         </div>
@@ -41,7 +41,7 @@
     </div>
     <div class="pitch-footer">
         <div class="likes ftr-highlight">
-            <a href="{{url_for('auth.login')}}">
+            <a href="">
             <div class="thumbs-up">
                 <i class="fas fa-thumbs-up"></i>
             </div>
@@ -49,7 +49,7 @@
             </a>
         </div>
         <div class="dislikes">
-            <a href="{{url_for('auth.login')}}" target="_blank">
+            <a href="">
             <div class="thumbs-down">
                 <i class="fas fa-thumbs-down"></i>
             </div>

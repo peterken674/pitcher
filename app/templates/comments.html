@@ -9,8 +9,8 @@
         </div>
         <div class="mx-3">
             <div class="names">
-                <span class="full-name">{{ pitch.user.fname }} {{ pitch.user.lname }}</span>
-                <span class="username">@{{ pitch.user.username }}</span>
+                <span class="full-name">{{ pitch.user.fname.capitalize() }} {{ pitch.user.lname.capitalize() }}</span>
+                <span class="username">@{{ pitch.user.username.lower() }}</span>
             </div>
             <div class="time">{{pitch.posted.strftime('%I:%M %p')}}</div>
         </div>
@@ -57,8 +57,8 @@
                 </div>
                 <div class="mx-3">
                     <div class="names">
-                        <span class="full-name">{{comment.user.fname}} {{comment.user.lname}}</span>
-                        <span class="username">@{{comment.user.username}}</span>
+                        <span class="full-name">{{comment.user.fname.capitalize()}} {{comment.user.lname.capitalize()}}</span>
+                        <span class="username">@{{comment.user.username.lower()}}</span>
                     </div>
                     <div class="time">{{comment.posted.strftime('%I:%M %p')}}</div>
                 </div>
