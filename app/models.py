@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from flask_login import UserMixin
 from . import login_manager
+from sqlalchemy import asc
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -81,7 +82,7 @@ class Comment(db.Model):
 
     @classmethod
     def get_comments(cls, id):
-        comments = Comment.query.filter_by(pitch_id=id)
+        comments = Comment.query.filter_by(pitch_id=id).order_by(asc(Comment.posted)).all()
         return comments
         
 class Category(db.Model):

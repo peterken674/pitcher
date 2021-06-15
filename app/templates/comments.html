@@ -48,26 +48,25 @@
     <hr>
 
     <div class="comments-div">
+
+        {% for comment in comments %}
         <div class="comment px-4 mb-2">
             <div class="pitch-header">
                 <div class="dp-div">
-                    <img src="{{url_for('static', filename='img/rachel.jpg')}}" />
+                    <img src="{{url_for('static', filename=comment.user.profile_pic_path)}}" />
                 </div>
                 <div class="mx-3">
                     <div class="names">
-                        <span class="full-name">Rachel Greene</span>
-                        <span class="username">@rgreene</span>
+                        <span class="full-name">{{comment.user.fname}} {{comment.user.lname}}</span>
+                        <span class="username">@{{comment.user.username}}</span>
                     </div>
-                    <div class="time">3:47 PM</div>
+                    <div class="time">{{comment.posted.strftime('%I:%M %p')}}</div>
                 </div>
             </div>
             <div class="comment-body">
                 <div class="comment-content">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
-                        explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
-                        rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        {{comment.comment}}
                     </p>
                 </div>
                 <div class="pitch-footer">
@@ -75,56 +74,19 @@
                         <div class="thumbs-up">
                             <i class="fas fa-thumbs-up"></i>
                         </div>
-                        <div class="likes-count">3.4K</div>
+                        <div class="likes-count">{{comment.likes}}</div>
                     </div>
                     <div class="dislikes">
                         <div class="thumbs-down">
                             <i class="fas fa-thumbs-down"></i>
                         </div>
-                        <div class="dislikes-count">69</div>
+                        <div class="dislikes-count">{{comment.dislikes}}</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="comment px-4 mb-2">
-            <div class="pitch-header">
-                <div class="dp-div">
-                    <img src="{{url_for('static', filename='img/chandler.jpg')}}" />
-                </div>
-                <div class="mx-3">
-                    <div class="names">
-                        <span class="full-name">Chandler Bing</span>
-                        <span class="username">@cbing</span>
-                    </div>
-                    <div class="time">3:10 PM</div>
-                </div>
-            </div>
-            <div class="comment-body">
-                <div class="comment-content">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
-                        explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
-                        rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-                <div class="pitch-footer">
-                    <div class="likes">
-                        <div class="thumbs-up">
-                            <i class="fas fa-thumbs-up"></i>
-                        </div>
-                        <div class="likes-count">3.4K</div>
-                    </div>
-                    <div class="dislikes">
-                        <div class="thumbs-down">
-                            <i class="fas fa-thumbs-down"></i>
-                        </div>
-                        <div class="dislikes-count">69</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
 
     </div>
 </div>

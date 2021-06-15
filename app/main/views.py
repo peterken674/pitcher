@@ -63,10 +63,11 @@ def comment(pitch_id):
 
         new_comment = Comment(comment=comment, user=current_user, pitch=pitch)
         new_comment.save_comment()
+        return redirect(url_for('main.comment', pitch_id=pitch_id))
 
     # Get comments for pitch.
     comments = Comment.get_comments(pitch_id)
-    return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments)
+    return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments, title=title)
 
 @main.route('/profile')
 @login_required
