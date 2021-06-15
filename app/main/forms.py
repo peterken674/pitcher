@@ -7,8 +7,8 @@ from ..models import Category
 
 
 class PitchForm(FlaskForm):
-    pitch = TextAreaField('New Pitch', validators=[Required()])
-    category = QuerySelectField('Category', validators=[Required()], allow_blank=True, get_label='name')
+    pitch = TextAreaField('Tell us about you.', validators=[Required()], render_kw={"placeholder": "Type a pitch..."})
+    category = QuerySelectField('Select category.', validators=[Required()], allow_blank=True, get_label='name')
     submit = SubmitField('Pitch')
 
 class CommentForm(FlaskForm):
