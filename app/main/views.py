@@ -14,7 +14,6 @@ def index():
     form = PitchForm()
     title = 'Home | Pitcher'
     form.category.query = Category.query
-    pitches = []
     if form.validate_on_submit():
         selected_category = form.category.data
         pitch = form.pitch.data
