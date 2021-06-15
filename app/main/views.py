@@ -12,6 +12,7 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    pitches = Pitch.get_pitches()
     form = PitchForm()
     title = 'Home | Pitcher'
     form.category.query = Category.query
@@ -25,7 +26,7 @@ def index():
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
-    pitches = Pitch.get_pitches()
+    
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
@@ -34,6 +35,7 @@ def categories(id):
     '''
     View root page function that returns the index page and its data
     '''
+    pitches = Pitch.get_pitches_by_category(id)
     form = PitchForm()
     title = 'Home | Pitcher'
     form.category.query = Category.query
@@ -48,7 +50,6 @@ def categories(id):
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
-    pitches = Pitch.get_pitches_by_category(id)
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
@@ -58,6 +59,8 @@ def comment(pitch_id):
     comment_form = CommentForm()
     title = 'Comments | Pitcher'
     pitch = Pitch.query.filter_by(id=pitch_id).first()
+    # Get comments for pitch.
+    comments = Comment.get_comments(pitch_id)
     if comment_form.validate_on_submit():
         comment = comment_form.comment.data
 
@@ -65,8 +68,6 @@ def comment(pitch_id):
         new_comment.save_comment()
         return redirect(url_for('main.comment', pitch_id=pitch_id))
 
-    # Get comments for pitch.
-    comments = Comment.get_comments(pitch_id)
     return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments, title=title)
 
 @main.route('/profile')
