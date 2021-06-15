@@ -160,6 +160,10 @@ html, body {
   color: #474259;
 }
 
+.profile-div .profile-name a {
+  color: #F199F2;
+}
+
 .profile-div .profile-name .full-name {
   font-weight: 600;
 }
@@ -524,5 +528,21 @@ img {
 .comment-field #submit:hover {
   background-color: #4A5FD9;
   color: white;
+}
+
+#names {
+  border-left: 3px solid #4A5FD9;
+  padding-left: 2rem;
+  padding-top: 4rem;
+}
+
+#full-name {
+  color: #474259;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#username {
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */

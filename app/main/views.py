@@ -70,8 +70,10 @@ def comment(pitch_id):
 
     return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments, title=title)
 
-@main.route('/profile')
+@main.route('/user/profile/<int:id>')
 @login_required
-def profile():
+def profile(id):
 
-    return render_template('profile.html')
+    pitches = Pitch.get_pitches_by_user(id)
+
+    return render_template('profile.html', pitches=pitches)

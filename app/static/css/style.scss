@@ -132,6 +132,9 @@ html, body {
         line-height: 1.2rem;
         font-size: 1.5rem;
         color: $darks;
+        a{
+            color: $secondary-color;
+        }
 
         .full-name {
             font-weight: 600;
@@ -432,4 +435,16 @@ img{
             color: white;
         }
     }
+}
+#names{
+    border-left: 3px solid $primary-color;
+    padding-left: 2rem;padding-top: 4rem;
+}
+#full-name{
+    color: $darks;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+#username{
+    font-size: 1.5rem;
 }
