@@ -7,6 +7,11 @@ from . import login_manager
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+likes = db.Table('likes',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('pitch_id', db.Integer, db.ForeignKey('pitches.id'))
+)
     
 class User(UserMixin, db.Model):
     '''Class to define a user of the application.
@@ -24,6 +29,7 @@ class User(UserMixin, db.Model):
 
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
+    liked = db.relationship('Pitch', secondary=likes, backref='user', lazy='dynamic')
 
     @property
     def password(self):
@@ -48,6 +54,7 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     comments = db.relationship('Comment', backref='pitch', lazy='dynamic')
+    likers = db.relationship('User', secondary=likes, backref='pitch', lazy='dynamic')
 
     def save_pitch(self):
         db.session.add(self)
