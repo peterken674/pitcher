@@ -439,6 +439,19 @@ img{
 #names{
     border-left: 3px solid $primary-color;
     padding-left: 2rem;padding-top: 4rem;
+    #submit{
+        background-color: white;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        transition: $transition;
+
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+        }
+    }
 }
 #full-name{
     color: $darks;

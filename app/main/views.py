@@ -1,9 +1,10 @@
-from ..models import Category, Pitch, Comment
-from flask import render_template, redirect, url_for
+from ..models import Category, Pitch, Comment, User
+from flask import render_template, redirect, url_for, request
 from . import main
 from flask_login import login_required, current_user
-from .forms import CommentForm, PitchForm
+from .forms import CommentForm, PitchForm, UpdateProfilePic
 from sqlalchemy import desc
+from .. import photos, db
 
 
 # Index page.
@@ -70,10 +71,35 @@ def comment(pitch_id):
 
     return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments, title=title)
 
-@main.route('/user/profile/<int:id>')
+@main.route('/user/profile/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def profile(id):
 
+    form = UpdateProfilePic()
+    user = User.query.filter_by(id=id).first()
     pitches = Pitch.get_pitches_by_user(id)
 
-    return render_template('profile.html', pitches=pitches)
+    if form.validate_on_submit():
+        filename = photos.save(form.profile.data)
+        profile_pic_path = f'img/{filename}'
+        user.profile_pic_path = profile_pic_path
+        print("hello")
+        db.session.commit()
+        return redirect(url_for('main.profile', id=id))
+
+    return render_template('profile.html', pitches=pitches, form=form, user=user)
+
+# @main.route('/use/profile/<int:id>', methods = ['GET', 'POST'])
+# def update_profile_pic(id):
+#     form = UpdateProfilePic()
+#     user = User.query.filter_by(id=id).first()
+#     if form.validate_on_submit():
+#         filename = photos.save(form.profile.data)
+#         profile_pic_path = f'img/{filename}'
+#         user.profile_pic_path = profile_pic_path
+#         print("hello")
+#         db.session.commit()
+#         return redirect(url_for('main.profile', id=id))
+
+#     pitches = Pitch.get_pitches_by_user(id)
+#     return render_template('profile.html', pitches=pitches, form=form, user=user)

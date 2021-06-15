@@ -4,6 +4,7 @@ from wtforms import TextAreaField, SubmitField
 from wtforms.validators import Required
 from wtforms_sqlalchemy.fields import QuerySelectField
 from ..models import Category
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 
 class PitchForm(FlaskForm):
@@ -14,4 +15,8 @@ class PitchForm(FlaskForm):
 class CommentForm(FlaskForm):
     comment = TextAreaField('',validators=[Required()], render_kw={"placeholder": "Type a comment..."})
     submit = SubmitField('Comment')
+
+class UpdateProfilePic(FlaskForm):
+    profile = FileField('Change Profile Picture', validators=[FileRequired(), FileAllowed(['jpg','png'], 'Images only allowed.')])
+    submit = SubmitField('Change')
 
