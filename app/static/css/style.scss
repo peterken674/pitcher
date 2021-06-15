@@ -30,7 +30,9 @@ html, body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    a{
+        text-decoration: none;
+    }
     .logodiv {
         display: flex;
         flex-direction: row;
@@ -321,6 +323,9 @@ html, body {
             margin: 0;
         }
     }
+    .categories{
+        display: none;
+    }
 }
 
 .sign-form, .new {
@@ -398,3 +403,33 @@ img{
     #cat{
         background-color: $primary-color;
     }
+
+.comments, .likes, .dislikes{
+    a{
+        display: flex;
+        text-decoration: none;
+        color: grey;
+        transition: $transition;
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+.comment-field{
+    textarea {
+        font-size: 1.5rem;
+    }
+    #submit {
+        background-color: white;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        transition: $transition;
+        
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+}

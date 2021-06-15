@@ -41,22 +41,28 @@
     </div>
     <div class="pitch-footer">
         <div class="likes ftr-highlight">
+            <a href="{{url_for('auth.login')}}" target="_blank" rel="noopener noreferrer">
             <div class="thumbs-up">
                 <i class="fas fa-thumbs-up"></i>
             </div>
             <div class="likes-count">{{pitch.likes}}</div>
+            </a>
         </div>
         <div class="dislikes">
+            <a href="{{url_for('auth.login')}}" target="_blank" rel="noopener noreferrer">
             <div class="thumbs-down">
                 <i class="fas fa-thumbs-down"></i>
             </div>
             <div class="dislikes-count">{{pitch.dislikes}}</div>
+            </a>
         </div>
         <div class="comments">
+            <a href="{{url_for('main.comment', pitch_id=pitch.id)}}" target="_blank" rel="noopener noreferrer">
             <div>
                 <i class="fas fa-comment"></i>
             </div>
             <div>{{pitch.comments.count()}}</div>
+            </a>
         </div>
     </div>
 </div>

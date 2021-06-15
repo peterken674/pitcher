@@ -2,7 +2,7 @@ from app.models import Category, Pitch
 from flask import render_template, redirect, url_for
 from . import main
 from flask_login import login_required, current_user
-from .forms import PitchForm
+from .forms import CommentForm, PitchForm
 from sqlalchemy import desc
 
 # Index page.
@@ -52,10 +52,15 @@ def categories(id):
 
     return render_template('home.html', title = title, form=form, pitches = pitches)
 
-@main.route('/comments')
-def pitch():
+@main.route('/<pitch_id>/comments')
+def comment(pitch_id):
 
-    return render_template('comments.html')
+    form = CommentForm()
+    title = 'Comments | Pitcher'
+    pitch = Pitch.query.filter_by(id=pitch_id).first()
+    # if form.validate_on_submit():
+
+    return render_template('comments.html', pitch=pitch, form=form)
 
 @main.route('/profile')
 @login_required

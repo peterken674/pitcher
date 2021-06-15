@@ -1,25 +1,23 @@
-{% extends 'index.html' %} {% block pitches %} {{ super() }}
+{% extends 'index.html' %} 
+{% import "bootstrap/wtf.html" as wtf %}
+{% block pitches %} 
+{{ super() }}
 <div class="pitch p-4 mb-3">
     <div class="pitch-header">
         <div class="dp-div">
-            <img src="{{url_for('static', filename='img/joey.jpg')}}" />
+            <img src="{{url_for('static', filename=pitch.user.profile_pic_path)}}" />
         </div>
         <div class="mx-3">
             <div class="names">
-                <span class="full-name">Joey Tribiani</span>
-                <span class="username">@jtribbiani</span>
+                <span class="full-name">{{ pitch.user.fname }} {{ pitch.user.lname }}</span>
+                <span class="username">@{{ pitch.user.username }}</span>
             </div>
-            <div class="time">3:04 PM</div>
+            <div class="time">{{pitch.posted.strftime('%I:%M %p')}}</div>
         </div>
     </div>
     <div class="pitch-content">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illum
-            explicabo iste eligendi aperiam ex dolorum incidunt ab, delectus sunt
-            rerum minima non aspernatur tenetur totam temporibus neque architecto! A!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatum
-            iste alias fugit animi id soluta quisquam repellendus, cumque amet quo
-            distinctio et explicabo beatae repellat est molestiae error aliquid!
+            {{ pitch.pitch }}
         </p>
     </div>
     <div class="pitch-footer">
@@ -42,6 +40,11 @@
             <div>11.7K</div>
         </div>
     </div>
+    {% if current_user.is_authenticated %}
+    <div class="comment-field">
+        {{ wtf.quick_form(form) }}
+    </div>
+    {% endif %}
     <hr>
 
     <div class="comments-div">
