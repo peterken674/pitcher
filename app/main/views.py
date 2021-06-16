@@ -40,7 +40,6 @@ def categories(id):
     form = PitchForm()
     title = 'Home | Pitcher'
     form.category.query = Category.query
-    pitches = []
     if form.validate_on_submit():
         selected_category = form.category.data
         pitch = form.pitch.data
@@ -111,4 +110,4 @@ def like_comment_action(id, action):
     if action == 'unlike':
         current_user.unlike_comment(comment)
         db.session.commit()
-    return redirect(request.referrer)
+    return redirect(url_for('main.comment', pitch_id = comment.pitch.id))
