@@ -43,15 +43,18 @@
 				<div class="pitch-footer">
 					<div class="likes">
 						<div class="thumbs-up">
-							<i class="fas fa-thumbs-up"></i>
+							<i class="fas fa-arrow-circle-up    "></i>
 						</div>
-						<div class="likes-count">{{ pitch.likes }}</div>
 					</div>
+                    <div>
+                        <div>
+                            {{pitch.likes.count()}}
+                        </div>
+                    </div>
 					<div class="dislikes">
 						<div class="thumbs-down">
-							<i class="fas fa-thumbs-down"></i>
+							<i class="fas fa-arrow-circle-down    "></i>
 						</div>
-						<div class="dislikes-count">{{ pitch.dislikes }}</div>
 					</div>
 					<div class="comments">
 						<a href="{{url_for('main.comment', pitch_id=pitch.id)}}">
