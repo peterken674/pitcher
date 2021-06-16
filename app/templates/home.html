@@ -31,19 +31,22 @@ pitches %} {{ super() }} {% if current_user.is_authenticated %}
     </div>
     <div class="pitch-footer">
         <div class="likes ftr-highlight">
-            <a href="">
+            <a href="{{ url_for('main.like_action', id=pitch.id, action='like') }}">
                 <div class="thumbs-up">
-                    <i class="fas fa-thumbs-up"></i>
+                    <i class="fas fa-arrow-circle-up"></i>
                 </div>
-                <div class="likes-count">{{pitch.likes}}</div>
             </a>
         </div>
+        <div>
+            <div>
+                {{pitch.likes.count()}}
+            </div>
+        </div>
         <div class="dislikes">
-            <a href="">
+            <a href="{{ url_for('main.like_action', id=pitch.id, action='unlike') }}">
                 <div class="thumbs-down">
-                    <i class="fas fa-thumbs-down"></i>
+                    <i class="fas fa-arrow-circle-down"></i>
                 </div>
-                <div class="dislikes-count">{{pitch.dislikes}}</div>
             </a>
         </div>
         <div class="comments">

@@ -67,7 +67,7 @@ def comment(pitch_id):
 
         new_comment = Comment(comment=comment, user=current_user, pitch=pitch)
         new_comment.save_comment()
-        return redirect(url_for('main.comment', pitch_id=pitch_id))
+        return redirect(request.referrer)
 
     return render_template('comments.html', pitch=pitch, form=comment_form, comments=comments, title=title)
 
@@ -89,17 +89,26 @@ def profile(id):
 
     return render_template('profile.html', pitches=pitches, form=form, user=user)
 
-# @main.route('/use/profile/<int:id>', methods = ['GET', 'POST'])
-# def update_profile_pic(id):
-#     form = UpdateProfilePic()
-#     user = User.query.filter_by(id=id).first()
-#     if form.validate_on_submit():
-#         filename = photos.save(form.profile.data)
-#         profile_pic_path = f'img/{filename}'
-#         user.profile_pic_path = profile_pic_path
-#         print("hello")
-#         db.session.commit()
-#         return redirect(url_for('main.profile', id=id))
+@main.route('/like/<int:id>/<action>', methods = ['GET', 'POST'])
+@login_required
+def like_action(id, action):
+    pitch = Pitch.query.filter_by(id=id).first_or_404()
+    if action == 'like':
+        current_user.like_pitch(pitch)
+        db.session.commit()
+    if action == 'unlike':
+        current_user.unlike_pitch(pitch)
+        db.session.commit()
+    return redirect(request.referrer)
 
-#     pitches = Pitch.get_pitches_by_user(id)
-#     return render_template('profile.html', pitches=pitches, form=form, user=user)
+@main.route('/like/comment/<int:id>/<action>', methods = ['GET', 'POST'])
+@login_required
+def like_comment_action(id, action):
+    comment = Comment.query.filter_by(id=id).first_or_404()
+    if action == 'like':
+        current_user.like_comment(comment)
+        db.session.commit()
+    if action == 'unlike':
+        current_user.unlike_comment(comment)
+        db.session.commit()
+    return redirect(request.referrer)

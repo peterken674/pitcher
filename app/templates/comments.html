@@ -1,6 +1,6 @@
-{% extends 'index.html' %} 
+{% extends 'index.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
-{% block pitches %} 
+{% block pitches %}
 {{ super() }}
 <div class="pitch p-4 mb-3">
     <div class="pitch-header">
@@ -21,23 +21,32 @@
         </p>
     </div>
     <div class="pitch-footer">
-        <div class="likes">
-            <div class="thumbs-up">
-                <i class="fas fa-thumbs-up"></i>
+        <div class="likes ftr-highlight">
+            <a href="{{ url_for('main.like_action', id=pitch.id, action='like') }}">
+                <div class="thumbs-up">
+                    <i class="fas fa-arrow-circle-up"></i>
+                </div>
+            </a>
+        </div>
+        <div>
+            <div>
+                {{pitch.likes.count()}}
             </div>
-            <div class="likes-count">{{ pitch.likes }}</div>
         </div>
         <div class="dislikes">
-            <div class="thumbs-down">
-                <i class="fas fa-thumbs-down"></i>
-            </div>
-            <div class="dislikes-count">{{pitch.dislikes}}</div>
+            <a href="{{ url_for('main.like_action', id=pitch.id, action='unlike') }}">
+                <div class="thumbs-down">
+                    <i class="fas fa-arrow-circle-down"></i>
+                </div>
+            </a>
         </div>
         <div class="comments">
+            <!-- <a href="{{url_for('main.comment', pitch_id=pitch.id)}}"> -->
             <div>
                 <i class="fas fa-comment"></i>
             </div>
             <div>{{pitch.comments.count()}}</div>
+            </a>
         </div>
     </div>
     {% if current_user.is_authenticated %}
@@ -57,7 +66,8 @@
                 </div>
                 <div class="mx-3">
                     <div class="names">
-                        <span class="full-name">{{comment.user.fname.capitalize()}} {{comment.user.lname.capitalize()}}</span>
+                        <span class="full-name">{{comment.user.fname.capitalize()}}
+                            {{comment.user.lname.capitalize()}}</span>
                         <span class="username">@{{comment.user.username.lower()}}</span>
                     </div>
                     <div class="time">{{comment.posted.strftime('%I:%M %p')}}</div>
@@ -70,16 +80,24 @@
                     </p>
                 </div>
                 <div class="pitch-footer">
-                    <div class="likes">
-                        <div class="thumbs-up">
-                            <i class="fas fa-thumbs-up"></i>
+                    <div class="likes">.
+                        <a href="{{ url_for('main.like_comment_action', id=comment.id, action='like') }}">
+                            <div class="thumbs-up">
+                                <i class="fas fa-arrow-circle-up    "></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <div>
+                            {{comment.likes.count()}}
                         </div>
-                        <div class="likes-count">{{comment.likes}}</div>
                     </div>
                     <div class="dislikes">
-                        <div class="thumbs-down">
-                            <i class="fas fa-thumbs-down"></i>
-                        </div>
+                        <a href="{{ url_for('main.like_comment_action', id=comment.id, action='unlike') }}">
+                            <div class="thumbs-down">
+                                <i class="fas fa-arrow-circle-down    "></i>
+                            </div>
+                        </a>
                         <div class="dislikes-count">{{comment.dislikes}}</div>
                     </div>
                 </div>
