@@ -24,7 +24,9 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql://gdsvrimfcnxcqv:d6203420508973eb16e85eba77551c23222bed0ae31adce36457487a80b338b4@ec2-3-89-0-52.compute-1.amazonaws.com:5432/d402udg1b2d076'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "")
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peterken:pa55@localhost/pitcher_test'
