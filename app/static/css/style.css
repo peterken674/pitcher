@@ -560,4 +560,44 @@ img {
 #username {
   font-size: 1.5rem;
 }
+
+.error {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+
+.error:hover {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+}
+
+.error > div {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.error h4 {
+  color: grey;
+}
+
+.oops {
+  font-weight: 800;
+  color: #4A5FD9;
+  font-size: 6rem;
+}
 /*# sourceMappingURL=style.css.map */

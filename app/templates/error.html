@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block error %}
+{{ super() }}
+    <div class="error card">
+        <div>
+            <h1 class="oops">OOPS!</h1>
+            <h4>Looks like you found our 404, congratulations. </h4>
+            <h4>Now go back.</h4>
+        </div>
+    </div>
+{% endblock %}

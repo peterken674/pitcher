@@ -461,3 +461,31 @@ img{
 #username{
     font-size: 1.5rem;
 }
+
+.error {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    transition: $transition;
+    &:hover {
+        transform: scale(1.025);
+    }
+}
+
+.error>div {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.error h4 {
+    color: grey;
+}
+
+.oops {
+    font-weight: 800;
+    color: $primary-color;
+    font-size: 6rem;
+}
